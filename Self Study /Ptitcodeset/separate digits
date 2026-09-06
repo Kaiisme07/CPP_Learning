@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+	string res(string s){
+		string lt; // letter
+		string nb;	// number
+		for ( int i = 0; i < s.length(); i++){
+			if (s[i] >= 'A' && s[i] <= 'Z'){
+				lt += s[i]; 
+			}
+			else if (s[i] >= '0' && s[i] <= '9')
+				nb += s[i];		
+		}
+		
+		for ( int a = 0; a < lt.length() - 1; a++){  
+			for(int j = 0; j < lt.length() - 1 - a; j++){
+			char temp;
+			if ( lt[j] > lt[j+1]){
+				temp    = lt[j+1];
+				lt[j+1] = lt[j];
+				lt[j]   = temp;}
+		}
+	}
+		
+		// 12345 ->  s = 0 + n%10 . n / 10 -> s = 5 , n = 1234 -> s = 9, n = 123 -> s = 12, n = 12 -> s = 14, n=1 -> s = 15, n= 0
+		int sum = 0;
+		int n = stoi(nb);
+		while(n){
+			sum = sum + (n % 10);
+			n /= 10;
+		} 
+		string nber = to_string(sum);
+			string c = lt + nber;
+			return c;
+}
+
+
+	bool check(string s){
+		for (int i = 0; i < s.size(); i++){
+		if ( (s[i] < 'A' || s[i] > 'Z') && (s[i] < '0' || s[i] > '9') ){
+			return 0;
+		}
+	}
+	return 1;
+			
+	}
+	
+	//  duyen toan bo mang -> neu tu A - Z tao thanh 1 mang chu cai rieng -> neu 0 - 9 tao thanh mang chu so rieng 
+	// tao 1 ham dung to_string chuyen thanh so int xong roi tinh tong sau do doi ve mang 
+	// tao 1 ham sap xep ki tu theo alphabet 
+	// noi mang chu cai voi mang chu so 
+	
+	int main(){
+	int T; cin >> T;
+	cin.ignore(1);
+	string s;
+	
+		for ( int i = 0; i < T; i++){
+				getline(cin, s);
+				if (check(s)){
+				cout << res(s) << endl;
+			}
+			else 
+				cout << " Invalid string, Input again! ";
+		}
+		
+	return 0;
+	}
