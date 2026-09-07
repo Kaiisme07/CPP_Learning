@@ -1,0 +1,31 @@
+// Nhập vào n số nguyên không âm, đếm số lượng số là số nguyên tố trong
+dãy số vừa nhập.
+Input:
+Dòng đầu tiên là n (1<=n<=10000) - số lượng số nguyên trong dãy.
+Dòng thứ 2 là n số nguyên trong dãy// 
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+	bool nt(int a){
+		for ( int i = 2; i <= sqrt(a); i++){
+			if ( a % i == 0)
+				return 0;
+		}
+		return a > 1;
+	}
+
+    int main(){
+        int n, cnt = 0; cin >> n;
+        int a[n];
+            for ( int i = 0; i < n; i++){
+               cin >> a[i];}
+    	for ( int i = 0; i < n; i++){
+            	if (nt(a[i])){
+            		cnt++;
+				}
+        }
+        cout << cnt; 
+        return 0;
+    }
+    
