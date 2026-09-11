@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+	
+	
+    int main(){
+        int a[10] = {500000, 200000, 100000, 50000, 20000, 10000, 5000, 2000, 1000, 500};
+        int x; cin >> x;
+        int cnt = 0;
+		for ( int i = 0; i < 10; i++){
+				cnt = cnt + x / a[i]; // cnt = 1 200 000 / 500 000 = 2   		
+				x %= a[i]; 		// -> 1 200 000 % 500 000 = 200 000
+		}
+		if ( x != 0) { 
+			cout << "Khong doi duoc";
+		}
+		else 
+			cout <<"So to it nhat = " << cnt;
+        return 0;
+    }
+    
