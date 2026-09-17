@@ -1,0 +1,32 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+struct thisinh {
+    string hoten;
+    string ngaysinh;
+	float diemmon1;
+    float diemmon2;
+    float diemmon3;
+	double tongdiem;
+};
+
+void nhap(thisinh &A) {
+    getline(cin, A.hoten);
+    getline(cin, A.ngaysinh);
+    cin >> A.diemmon1 >> A.diemmon2 >> A.diemmon3;
+	A.tongdiem = A.diemmon1 + A.diemmon2 + A.diemmon3;
+}
+
+
+
+void in(thisinh A) {
+    cout << A.hoten << " " << A.ngaysinh << " " << fixed << setprecision(1) << A.tongdiem;
+}
+
+int main() {
+    struct thisinh A;
+    nhap(A);
+    in(A);
+    return 0;
+}
